@@ -1,0 +1,95 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RegisterGuest</title>
+</head>
+<body>
+
+<h1 style="color:yellow; text-align:center">Register Guest</h1>
+<c:if test="${not empty resultMsg}"> 
+    <div style="color: red; text-align: center;">${resultMsg}</div> 
+</c:if>
+<!-- Guest Registration Form -->
+
+<frm:form modelAttribute="guest">
+    <table align="center" style="background-color:green">
+        <tr>
+            <td>GuestId:</td>
+            <td><frm:input path="guestId" readonly="true" hidden="true" /></td>
+        </tr>
+        <tr>
+            <td>GuestName:</td>
+            <td><frm:input path="guestName" /></td>
+        </tr>
+        <tr>
+            <td>GuestMobileNumber:</td>
+            <td><frm:input path="guestphoneNumber" /></td>
+        </tr>
+        <tr>
+            <td>GuestEmail:</td>
+            <td><frm:input path="guestEmail" /></td>
+        </tr>
+        <tr>
+            <td>GuestDateOfBirth:</td>
+            <td><frm:input path="dateofbirth" /></td>
+        </tr>
+        <tr>
+            <td>GuestQualification:</td>
+            <td><frm:input path="qualification" /></td>
+        </tr>
+        <tr>
+            <td>GuestProfession:</td>
+            <td><frm:input path="working" /></td>
+        </tr>
+        <tr>
+            <td>GuestEmergencyContact:</td>
+            <td><frm:input path="emergencyContact" /></td>
+        </tr>
+        
+        <!-- Address Section -->
+        <tr>
+            <td>GuestAddressLine1:</td>
+            <td><frm:input path="address[0].addressLine1" /></td> <!-- Note the indexing -->
+        </tr>
+        <tr>
+            <td>GuestAddressLine2:</td>
+            <td><frm:input path="address[0].addressLine2" /></td> <!-- Note the indexing -->
+        </tr>
+        <tr>
+            <td>GuestCity:</td>
+            <td><frm:input path="address[0].city" /></td> <!-- Note the indexing -->
+        </tr>
+        <tr>
+            <td>GuestCityPinCode:</td>
+            <td><frm:input path="address[0].pincode" /></td> <!-- Note the indexing -->
+        </tr>
+        <tr>
+            <td>GuestCountry:</td>
+            <td><frm:input path="address[0].country" /></td> <!-- Note the indexing -->
+        </tr>
+
+        <!-- Room Section -->
+        <tr>
+            <td>GuestRoomNumber:</td>
+            <td><frm:input path="room[0].roomNo" /></td> <!-- Note the indexing for room -->
+        </tr>
+        <tr>
+            <td>GuestRoomSharingType:</td>
+            <td><frm:input path="room[0].sharingType" /></td> <!-- Note the indexing for room -->
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Submit"></td>
+            <td><input type="reset" value="Cancel"></td>
+        </tr>
+    </table>
+</frm:form>
+</body>
+</html>
+

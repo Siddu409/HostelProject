@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@page isELIgnored="false" %>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="frm" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<h1 style="color:blue;text-align:center">Update Guest</h1>
+<frm:form modelAttribute="guest">
+<table align="center" bgcolor="yellow">
+<tr><td>GuestId::</td><td><frm:input path="guestId" readonly="true"/></td></tr>
+<tr><td>GuestName::</td><td><frm:input path="guestName"/></td></tr>
+<tr><td>GuestMobileNumber::</td><td><frm:input path="guestphoneNumber"/></td></tr>
+<tr><td>GuestMail::</td><td><frm:input path="guestEmail"/></td></tr>
+<tr><td>GuestDateOfBirth::</td><td><frm:input path="dateofbirth"/></td></tr>
+<tr><td>GuestQualification::</td><td><frm:input path="qualification"/></td></tr>
+<tr><td>GuestProfession::</td><td><frm:input path="working"/></td></tr>
+<tr><td>GuestEmergencyContact::</td><td><frm:input path="emergencyContact"/></td></tr>
+
+
+ <tr><td>GuestAddress1::</td><td><frm:input path="addressLine1"/></td></tr>
+  <tr><td>GuestAddress2::</td><td><frm:input path="addressLine2"/></td></tr>
+   <tr><td>GuestCity::</td><td><frm:input path="city"/></td></tr>
+	<tr><td>GuestCityPinCode::</td><td><frm:input path="pincode"/></td></tr>
+    <tr><td>GuestCountry::</td><td><frm:input path="country"/></td></tr>
+    
+<tr><td>GuestRoomNo::</td><td><frm:input path="roomNo"/></td></tr>
+<tr><td>GuestRoomSharingType::</td><td><frm:input path="sharingType"/></td></tr>
+
+<tr><td><input type="submit" value="Update Guest"></td><td><input type="reset" value="cancel"></td></tr>
+
+</table>
+
+</frm:form>
+</body>
+</html>

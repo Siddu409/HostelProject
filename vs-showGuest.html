@@ -1,0 +1,92 @@
+
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
+ <%@ page isELIgnored="false" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Guests Report</title>
+</head>
+<body>
+
+<c:choose>
+    <c:when test="${not empty GuestsList}">
+        <h1 style="color:orange;text-align:center;">Guests Report</h1>
+        <table border="1" align="center" bgcolor="grey">
+            <tr style="color:green">
+                <th>Guest ID</th>
+                <th>Guest Name</th>
+                <th>Guest Phone Number</th>
+                <th>Guest Email</th>
+                <th>Date of Birth</th>
+                <th>Qualification</th>
+                <th>Working</th>
+                <th>Emergency Contact</th>
+                <th>AddressLine1</th>
+                <th>AddressLine2</th>
+                <th>City</th>
+                <th>pincode</th>
+                <th>Country</th>
+                <th>Room No</th>
+                <th>Sharing Type</th>
+                <th>Actions</th>
+            </tr>
+
+            <c:forEach var="guest" items="${GuestsList}">
+                <tr style="color:blue">
+                    <td>${guest.guestId}</td>
+                    <td>${guest.guestName}</td>
+                    <td>${guest.guestphoneNumber}</td>
+                    <td>${guest.guestEmail}</td>
+                    <td>${guest.dateofbirth}</td>
+                    <td>${guest.qualification}</td>
+                    <td>${guest.working}</td>
+                    <td>${guest.emergencyContact}</td>
+
+                    <c:choose>
+                        <c:when test="${not empty guest.address}">
+                            <td>${guest.address.addressLine1}</td>
+                            <td>${guest.address.addressLine2}</td>
+                            <td>${guest.address.city}</td>
+                            <td>${guest.address.pincode}</td>
+                            <td>${guest.address.country}</td>
+                        </c:when>
+                        <c:otherwise>
+                            <td colspan="5">No Address Available</td>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <td>${guest.roomNo}</td>
+                    <td>${guest.sharingType}</td>
+                    <td>
+                        <a href="guest_edit?Id=${guest.guestId}">
+                            <img src="images/edit.png" width="40px" height="40px" alt="Edit"> Edit
+                        </a>
+                        <a href="guest_delete?Id=${guest.guestId}" onclick="return confirm('Do you really want to delete this?');">
+                            <img src="images/delete.png" width="40px" height="40px" alt="Delete"> Delete
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:when>
+    <c:otherwise>
+        <h1 style="color:red;text-align:center">Guests not found</h1>
+    </c:otherwise>
+</c:choose>
+
+<center>
+    <a href="guest_add">
+        <img src="images/add.png" width="40px" height="40px" alt="Add"> Add
+    </a>
+    <a href="./">
+        <img src="images/home.png" width="40px" height="40px" alt="Home"> Home
+    </a>
+</center>
+<h2 style="color:blue;text-align:center">${resultMsg}</h2>
+
+</body>
+</html>
