@@ -1,5 +1,4 @@
 package com.ht.entity;
-
 import java.io.Serializable;
 
 import java.time.LocalDate;
@@ -46,7 +45,7 @@ public class GuestDetails implements Serializable {
 	 @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) // adjust cascade as needed
 	    @JoinColumn(name = "guestId")
 	private List<Room> room;
-
+private String  roomNumber;
 
 	@Override
 	public String toString() {
